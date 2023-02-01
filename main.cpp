@@ -35,17 +35,35 @@ void multiplyNumberByMatrix(int multiNumber,int n,int m,std::vector<std::vector<
     }
 
 }
+void transposeMatrix(int n,int m,std::vector<std::vector<int>>&arr){
+    std::vector<std::vector <int> >transposedArr(n,std::vector<int>(m));
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            transposedArr[i][j]=arr[j][i];
+        }
+    }
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < m; j++)
+            std::cout << transposedArr[i][j] << " ";
+        std::cout << std::endl;
+    }
+}
 void chooseAction(std::string menu,int n,int m,std::vector<std::vector<int>>&arr){
     int action;
     std::cin>>action;
     int multiNumber, sumNumber;
     switch(action){
+        case 1:
+            std::cout<<std::endl<<"Відповідь: ";
+            transposeMatrix(n, m, arr);
+            std::cout<<menu;
+            chooseAction(menu,n,m,arr);
         case 3:
             std::cout<<std::endl<<"Введіть, яке число потрібно додати до матриці: ";
             std::cin>>sumNumber;
             addNumberToMatrix(sumNumber,n,m,arr);
             std::cout<<menu;
-            chooseAction(menu,n, m, arr);
+            chooseAction(menu,n,m,arr);
             break;
         case 5:
             std::cout<<std::endl<<"Введіть, яке число потрібно помножити на матрицю: ";
@@ -94,3 +112,4 @@ int main(){
     std::cout<<menu;
     chooseAction(menu,n,m,arr);
 }
+
