@@ -12,11 +12,11 @@ int matrixDeterminant(int n,int m,std::vector<std::vector<int>>&arr){
         else std::cout<<std::endl<<"Я ще не вмію шукати визначник такої великої матриці.";
     }else std::cout<<std::endl<<"Я ще не вмію шукати визначник не квадратної матриці.";
 }
-void addNumberToMatrix(int number,int n,int m,std::vector<std::vector<int>>&arr){
-    std::cout<<std::endl<<number;
+void addNumberToMatrix(int sumNumber,int n,int m,std::vector<std::vector<int>>&arr){
+    std::cout<<std::endl<<sumNumber;
     for (int i = 0; i < n; i++){
         for (int j = 0; j < m; j++)
-            arr[i][j] = arr[i][j] + number;
+            arr[i][j] = arr[i][j] + sumNumber;
     }
     std::cout<<std::endl<<"Відповідь: "<<std::endl;
     for (int i = 0; i < n; i++){
@@ -25,15 +25,34 @@ void addNumberToMatrix(int number,int n,int m,std::vector<std::vector<int>>&arr)
         std::cout << std::endl;
     }
 }
+void multiplyNumberByMatrix(int multiNumber,int n,int m,std::vector<std::vector<int>>&arr){
+    std::cout<<std::endl<<multiNumber;
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < m; j++)
+            arr[i][j] = arr[i][j] * multiNumber;
+    }
+    std::cout<<std::endl<<"Відповідь: "<<std::endl;
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < m; j++)
+            std::cout <<arr[i][j] << " ";
+        std::cout << std::endl;
+    }
+    
+}
 void chooseAction(int n,int m,int action,std::vector<std::vector<int>>&arr){
-    int number;
+    int multiNumber, sumNumber;
     switch(action){
         case 3:
             std::cout<<std::endl<<"Введіть, яке число потрібно додати до матриці: ";
-            std::cin>>number;
-            addNumberToMatrix(number,n,m,arr);
+            std::cin>>sumNumber;
+            addNumberToMatrix(sumNumber,n,m,arr);
             break;
         case 5:
+            std::cout<<std::endl<<"Введіть, яке число потрібно помножити на матрицю: ";
+            std::cin>>multiNumber;
+            multiplyNumberByMatrix(multiNumber,n,m,arr);
+            break;
+        case 6:
             std::cout<<std::endl<<"Відповідь: "<< matrixDeterminant(n, m, arr);
 
             break;
@@ -62,10 +81,7 @@ int main(){
             std::cin>>arr[i][j];
         }
     }
-    std::cout<<std::endl<<"Тепер обери дію:\n1. Транспортувати матрицю(недоступно);\n2. Додати матриці(недоступно);\n3. Додати число матриці;\n4. Помножити матриці(недоступно);\n5. Знайти визначник матриці;\n666. Показати матрицю\n";
+    std::cout<<std::endl<<"Тепер обери дію:\n1. Транспортувати матрицю(недоступно);\n2. Додати матриці(недоступно);\n3. Додати число матриці;\n4. Помножити матриці(недоступно);\n5. Помножити число на матрицю;\n6. Знайти визначник матриці;\n666. Показати матрицю\n";
     std::cin>>action;
     chooseAction(n, m, action, arr);
 }
-
-
-
