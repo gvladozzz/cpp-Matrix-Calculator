@@ -1,0 +1,3 @@
+C:/Users/vladi/CLionProjects/cpp-Matrix-Calculator/cmake-build-debug/CMakeFiles/cpp_Matrix_Calculator.dir
+C:/Users/vladi/CLionProjects/cpp-Matrix-Calculator/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/vladi/CLionProjects/cpp-Matrix-Calculator/cmake-build-debug/CMakeFiles/rebuild_cache.dir
